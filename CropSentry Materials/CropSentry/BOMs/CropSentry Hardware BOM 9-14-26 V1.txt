@@ -1,0 +1,11 @@
+CropSentry Hardware BOM:
+
+Triple Screw Terminal (1)
+SGP41-D-R4 (1)
+BME688(1)
+SHT4x (1)
+Heltec V3 WiFi LoRa 32 V3 (1)
+Capacitor SMD 100nF 0805_2012Metric (4)
+Capacitor SMD 1µF 0805_2012Metric (1)
+Resistor 10kΩ 0805_2012Metric (2) 
+Resistor 100Ω 0805_2012Metric (1) 
