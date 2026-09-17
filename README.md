@@ -111,7 +111,7 @@ Stated up front rather than discovered later:
 
 ### 🏆 *Credits*
 
-- **Hardware, power system, enclosure, and node firmware:** ***[Cai Griffith](www.caigriffith.dev)*** — *https://github.com/CropSentry/Hardware*
+- **Hardware, power system, enclosure, and node firmware:** ***[Cai Griffith](https://www.caigriffith.dev)*** — *https://github.com/CropSentry/Hardware*
 - **Application and server backend/frontend:** ***Aahan Patel*** — *https://github.com/CropSentry/MobileApp*
 - **ML Design and backend:** ***Jay Patel*** - *https://github.com/CropSentry/ML-Model*
 
