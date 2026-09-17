@@ -105,6 +105,8 @@ Stated up front rather than discovered later:
 - **Duty cycle vs. sensor calibration is unresolved.** Sensirion's VOC Index algorithm builds a rolling baseline and expects regular sampling. Deep-sleeping between reads to save power may break that baseline. This is a genuine tension between the sensing approach and the power approach.
 - **Radio range is unverified.** The showcase target is 0.25 miles. Not yet measured.
 
+- **Enclosure CAD is currently in progress. The initial physical layout and sensor placement strategy is mapped out in [enclosure_sketch.png](https://github.com/CropSentry/Hardware/blob/main/enclosure-sketch.png), focusing on isolating the SHT45 ambient sensor from internal plastic outgassing**
+
 **--------------**
 
 ### 🏆 *Credits*
