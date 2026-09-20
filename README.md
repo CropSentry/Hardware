@@ -121,7 +121,13 @@ Stated up front rather than discovered later:
 - **Application and server backend/frontend:** ***Aahan Patel*** — *https://github.com/CropSentry/MobileApp*
 - **ML Design and backend:** ***Jay Patel*** - *https://github.com/CropSentry/ML-Model*
 
+
+
 CropSentry is a three-person project built for the **Congressional App Challenge**, and approved as a research project through **Middle Georgia State University CyberKnights**.
+
+***Any work regarding software, hardware, and planning is all designed by our team (only high schoolers).*** 
+
+We do have mentors to only give advice, but any work is done through us and us only.
 
 **--------------**
 
