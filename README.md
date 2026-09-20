@@ -85,13 +85,19 @@ Because the sensors are breakouts, they carry their own decoupling capacitors an
 | **Schottky diode** (40V 5A) | Reverse current blocking | 1 | — | 🔧 On hand |
 | **Bulk electrolytic** (1000 µF 10V) | LoRa TX transient smoothing | 1 | — | 🔧 On hand |
 
-| | |
-|---|---:|
-| Subtotal | $135.43 |
-| Tax (7%) | $9.48 |
-| **Total** | **$144.91** |
-| Spent so far | $77.43 |
-| **Remaining** | **$67.48** |
+### Budget
+
+| Line | Submitted | Actual | Δ |
+|---|---:|---:|---:|
+| Subtotal | $135.43 | $138.43 | +$3.00 |
+| Tax (7%) | $9.48 | $9.69 | +$0.21 |
+| **Total** | **$144.91** | **$148.12** | **+$3.21** |
+| Spent so far | $77.43 | $77.43 | — |
+| **Remaining** | **$67.48** | **$70.69** | **+$3.21** |
+
+*Submitted figures are the estimate filed with the Stardance application.
+Actuals reflect listing price changes between quote and checkout on parts
+not yet ordered. Variance is self-funded; no additional request made.*
 
 **--------------**
 
