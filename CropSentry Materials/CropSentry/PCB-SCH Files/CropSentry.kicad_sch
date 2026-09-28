@@ -2284,6 +2284,10 @@
 		(uuid "8844cfe2-e21f-479a-a730-028db3d731f2")
 	)
 	(no_connect
+		(at 82.55 139.7)
+		(uuid "889abe5c-146c-4366-b7a7-8f03665c5dad")
+	)
+	(no_connect
 		(at 82.55 167.64)
 		(uuid "8ac1aaeb-5868-4b57-b9f1-cca3c601780b")
 	)
@@ -2322,10 +2326,6 @@
 	(no_connect
 		(at 67.31 167.64)
 		(uuid "dfb44366-66f3-49f1-81d1-7f8704efe91e")
-	)
-	(no_connect
-		(at 87.63 139.7)
-		(uuid "e9e083fa-2a18-451d-a18b-659fed08b15b")
 	)
 	(no_connect
 		(at 72.39 167.64)
@@ -2718,7 +2718,7 @@
 		(uuid "01ece410-5af7-4587-b1a5-31cda8c8a392")
 	)
 	(label "SCL"
-		(at 85.09 139.7 90)
+		(at 87.63 139.7 90)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2858,7 +2858,7 @@
 		(uuid "8055cc7e-bc20-4951-b95a-c82f2c5166e4")
 	)
 	(label "SDA"
-		(at 82.55 139.7 90)
+		(at 85.09 139.7 90)
 		(effects
 			(font
 				(size 1.27 1.27)
