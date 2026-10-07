@@ -61,7 +61,7 @@ Because the sensors are breakouts, they carry their own decoupling capacitors an
 ### ⚡ *Data Flow*
 
 [![Architecture diagram of cropsentry/hardware](https://gitdiagram.com/cropsentry/hardware/diagram.png)](https://gitdiagram.com/cropsentry/hardware?utm_source=readme&utm_medium=picture)
-[![Architecture diagram link](https://gitdiagram.com/diagram-badge.svg)](https://gitdiagram.com/cropsentry/hardware?utm_source=readme&utm_medium=badge)
+[![Architecture diagram](https://gitdiagram.com/diagram-badge.svg)](https://gitdiagram.com/cropsentry/hardware?utm_source=readme&utm_medium=badge)
 
 **--------------**
 
