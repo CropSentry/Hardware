@@ -53,13 +53,13 @@ Each sensor except the Soil Moisture Probe is connected via **I2C Connection**. 
 ```
 --------------
 
-### 💡 *Design Decisions*
+### 💡 *Design Decisions and Potential Concerns*
 
 - **Range:** This can be a concern, as we are not completely sure how far the LoRa system/data will transmit. This would mostly be because we are still working on designing the model (10/8/2026) and are not able to go into the testing phase yet.
-- **Inaccurate Readings:** Specifically in the VOC/NOx sensors, where there is vulnerability due to them needing to be tested over time and for growth consistency. We are virtually trusting the sensors’ datasheets to determine our readings.
+- **Inaccurate Readings:** Specifically in the VOC/NOx sensors, where there is vulnerability due to them needing to be tested over time. We are virtually trusting the sensors’ datasheets to determine our readings.
 - **Water Leaking**: Rainwater (especially heavy rainwater) has a possibility of breaking through the 3D-printed layer protecting the circuits. We are actively looking for a solution to this concern and are considering using remedies such as rubber seals, CNC-milled products, and absorbent material.
 - **Calibration:** We are also relying on the datasheet for accurate calibration of all sensors. Similar to the BME688, we are taking multiple readings and using the median. We also have an embedded safeguard to not send data that is unrealistic and not plausible, such as, for example, a temperature reading showing as -200 Celsius.
-- **Frequency:** We decided, on much advice and legal regulations, to go with the 902-928 MHz band, which is also known as the ISM band (Industrial, Scientific, and Medical band).
+- **Frequency:** I decided, on much advice and legal regulations, to go with the 902-928 MHz band, which is also known as the ISM band (Industrial, Scientific, and Medical band).
 - **Coding Libraries:** For the hardware coding, I used the *heltec_unofficial.h*, *WiFiManager.h*, *HTTPClient.h*, *Wire.h*, *Adafruit_BME680.h*, and *Adafruit_SHT4x.h* libraries.
 
 
@@ -116,7 +116,7 @@ Each sensor except the Soil Moisture Probe is connected via **I2C Connection**. 
 | **Remaining** | **67.48**|**58.93** | **-$8.55** |
 
 
-*All on-hand pieces are CURRENTLY funded by me and others and other contributors; any money received from Stardance will go towards buying parts needed and covering part expenses. Due to shipping and time concerns, I had to purchase parts myself to be able to continue building CropSentry on a strong timeline.*
+*All on-hand pieces are CURRENTLY funded by me and other contributors; any money received from Stardance will go towards buying more parts needed and covering part expenses. Due to shipping and time concerns, I had to purchase parts myself to be able to continue building CropSentry on a strong timeline.*
 
 
 --------------
@@ -137,22 +137,13 @@ Each sensor except the Soil Moisture Probe is connected via **I2C Connection**. 
 
 Make sure you have these libraries installed in your IDE/codespace: *heltec_unofficial.h v.9.2*, *WiFiManager.h v2.0.17*, *HTTPClient.h v.6.1*, *Wire.h v3.3.12*, *Adafruit_BME680.h v2.0.6*, and *Adafruit_SHT4x.h v1.0.5*.
 
-Then, in the receiver module code, change line 121 to your server link.
+In the receiver module code, change line 121 to your server link.
 
-After that, make sure to plug in and run the receiver board code first, then do the mainboard.
+After that, make sure to plug in and run the receiver board code first; make sure to use the interactive Wi-Fi portal to connect the board to your router (You can do this by connecting to the board Wi-Fi from your device).
 
-Also, ensure you connect your phone to the receiver board's Wi-Fi so that you can use the interactive portal to connect it to your router.
+When the receiver board is set up, you can plug in and start the mainboard, which will automatically collect readings and send data to the receiver board.
 
-Once that's done and all your devices are connected, everything is automated provided there are no concurrent issues.
-
-
---------------
-
-### 🏆 *Credits*
-
-- **Hardware, power system, enclosure, and node firmware:** ***[Cai Griffith](https://www.caigriffith.dev)*** — *https://github.com/CropSentry/Hardware*
-- **Application and server backend/frontend:** ***[Aahan Patel](https://github.com/HarbingerYt)*** — *https://github.com/CropSentry/MobileApp*
-- **ML Design and backend:** ***[Jay Patel](https://github.com/Jay2710-09)*** — *https://github.com/CropSentry/ML-Model*
+Once that's done and all your devices are connected, everything is automated on a set timeframe, given there are no concurrent issues.
 
 --------------
 
@@ -173,11 +164,19 @@ Once that's done and all your devices are connected, everything is automated pro
 
 --------------
 
-### 🎬 *Presentation Links*
+### 🎬 *Presentations given at Middle Georgia State University CyberKnights Program*
 
 **Public link to presentation created for a research meeting:** ***[Presentation View Link](https://github.com/CropSentry/Hardware/blob/main/research-presentations/Introduction/CropSentry_MGA_Presentation.pdf)***
 
 **Public link to presentation created for an update at a research meeting (9-28-2026):** ***[Presentation View Link](https://github.com/CropSentry/Hardware/blob/main/research-presentations/Update_9-29-2026/CropSentry_Update_MGA_Presentation_9-28-2026.pdf)***
+
+--------------
+
+### 🏆 *Credits*
+
+- **Hardware, power system, enclosure, and node firmware:** ***[Cai Griffith](https://www.caigriffith.dev)*** — *https://github.com/CropSentry/Hardware*
+- **Application and server backend/frontend:** ***[Aahan Patel](https://github.com/HarbingerYt)*** — *https://github.com/CropSentry/MobileApp*
+- **ML Design and backend:** ***[Jay Patel](https://github.com/Jay2710-09)*** — *https://github.com/CropSentry/ML-Model*
 
 --------------
 
