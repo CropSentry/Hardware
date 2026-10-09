@@ -35,9 +35,9 @@ We see farmers as the cornerstone of our tech-evolving world, and we believe tha
 
 The board chosen for the hardware design is the ***Heltec LoRa V3*** due to its high-level radio capabilities and adjustable range/power accessibility.
 
-- **SGP41:** Detects VOC/NOx air pollution over a period of time using its metal-oxide sensor abilities. Sends its information through Sensirion’s built-in VOC translating algorithm. Primary gas sensor for accurate readings. Chosen for its potency to collect accurate information under low power and time.
-- **BME688:** Looks specifically for temperature and humidity, but also serves as a secondary VOC sensor. Since VOCs are hard to track accurately, the BME688 can act as another cross-check system. Chosen for its high versatility and efficiency.
-- **SHT45:**  Serves as the ambient system for temperature and humidity sensing. We also see this as another cross-check system, but it still carries weight in how data is calculated for the user. Chosen due to its low power, reduced pins, and sensor cross-checking abilities.
+- **SGP41:** Detects VOC/NOx air pollution over a period of time using its metal-oxide sensor abilities. Sends data through Sensirion’s built-in VOC-translating algorithm. Primary gas sensor for accurate readings. Chosen for its ability to collect accurate information under low power and time.
+- **BME688:** Looks specifically for temperature and humidity, but also serves as a secondary VOC sensor. Since VOCs are hard to track accurately, the BME688 can serve as an additional cross-check. Chosen for its high versatility and efficiency.
+- **SHT45:**  Serves as the ambient system for temperature and humidity sensing. I also see this as another cross-check system, but it still carries weight in how data is calculated for the user. Chosen due to its low power draw, reduced pins, and sensor cross-checking abilities.
 - **Capacitive Soil Moisture Probe:**  Detects soil moisture and processes all data on an ADC pin using analog information. I chose to use capacitive so the design wouldn’t corrode or get damaged during deployment.
 
 Each sensor except the Soil Moisture Probe is connected via **I2C Connection**. The Soil Moisture Probe is connected to **GPIO 2** to receive analog signals.
