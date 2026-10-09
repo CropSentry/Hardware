@@ -8,7 +8,7 @@
 
 **CropSentry** is an IoT device that automatically and autonomously tracks plant conditions, including VOC, temperature, soil moisture, gas, and humidity. It sits alone in a field and can monitor multiple crop sections at once. We see that through this process, an AI/ML model can use this data to determine the plant’s in-the-moment state, as well as provide an educated and accurate summary of what can show as a potential risk. 
 
-The data path of how info will get to a user will start from the on-board module. (Cai Griffith) From there, it sends information via a LoRa connection to another board that is connected to a Wi-Fi router. The board will then send over the Wi-Fi to a high-power server (https://gear.museumofaviation.org/tech-specs/) and will compute all readings with an AI/Ml system. (Jay Patel) After it’s been computed, the server will send the translated data to the CropSentry app. (Aahan Patel) From there, the user can read charts, numbers, and an AI summary of the condition of their crop.
+The data path of how info will get to a user will start from the on-board module. (Cai Griffith) From there, it sends information via a LoRa connection to another board that is connected to a Wi-Fi router. The board will then send over the Wi-Fi to a high-power server (https://gear.museumofaviation.org/tech-specs/) and will compute all readings with an AI/ML system. (Jay Patel) After it’s been computed, the server will send the translated data to the CropSentry app. (Aahan Patel) From there, the user can read charts, numbers, and an AI summary of the condition of their crop.
 
 **To summarize:**
 
@@ -26,7 +26,7 @@ The data path of how info will get to a user will start from the on-board module
 
 The board chosen for the hardware design is the ***Heltec LoRa V3*** due to its high-level radio capabilities and adjustable range/power accessibility.
 
-- **SGP41:** Detects VOC/NOx air pollution over a period of time using its metal-oxide sensor abilities. Sends its information through Sensiron’s built-in VOC translating algorithm. Primary gas sensor for accurate readings. Chosen for it's potentcy to collect accurate information under low power and time.
+- **SGP41:** Detects VOC/NOx air pollution over a period of time using its metal-oxide sensor abilities. Sends its information through Sensirion’s built-in VOC translating algorithm. Primary gas sensor for accurate readings. Chosen for its potency to collect accurate information under low power and time.
 - **BME688:** Looks specifically for temperature and humidity, but also serves as a secondary VOC sensor. Since VOCs are hard to track accurately, the BME688 can act as another cross-check system. Chosen for its high versatility and efficiency.
 - **SHT45:**  Serves as the ambient system for temperature and humidity sensing. We also see this as another cross-check system, but it still carries weight in how data is calculated for the user. Chosen due to its low power, reduced pins, and sensor cross-checking abilities.
 - **Capacitive Soil Moisture Probe:**  Detects soil moisture and processes all data on an ADC pin using analog information. I chose to use capacitive so the design wouldn’t corrode or get damaged during a deployment.
@@ -50,8 +50,8 @@ Each sensor except the Soil Moisture Probe is connected via **I2C Connection**. 
 - **Inaccurate Readings:** Specifically in the VOC/NOx sensors, where there is vulnerability due to them needing to be tested over time and for growth consistency. We are virtually trusting the sensors’ datasheets to determine our readings.
 - **Water Contamination**: Rainwater (especially heavy rainwater) has a possibility of breaking through the 3D-printed layer protecting the circuits. We are actively looking for a solution to this concern and are considering using remedies such as rubber seals, CNC-milled products, and absorbent material.
 - **Calibration:** We are also relying on the datasheet for accurate calibration of all sensors. Similar to the BME688, we are taking multiple readings and using the median. We also have an embedded safeguard to not send data that is unrealistic and not plausible, such as, for example, a temperature reading showing as -200 Celsius.
-- **Frequency:** We decided, on much advice and legal regulations, to go with the 900-915 MHz band, which is also known as the ISM band (Industrial, Scientific, and Medical band).
-- **Coding Libraries:** For the hardware coding, I used the *heltec_unofficial.h*, *WiFIManager.h*, *HTTPClient.h*, *Wire.h*, *Adafruit_BME680*, and *Adafruit_SHT4x.h* libraries.
+- **Frequency:** We decided, on much advice and legal regulations, to go with the 902-928 MHz band, which is also known as the ISM band (Industrial, Scientific, and Medical band).
+- **Coding Libraries:** For the hardware coding, I used the *heltec_unofficial.h*, *WiFiManager.h*, *HTTPClient.h*, *Wire.h*, *Adafruit_BME680.h*, and *Adafruit_SHT4x.h* libraries.
 
 
 --------------
@@ -141,7 +141,7 @@ Each sensor except the Soil Moisture Probe is connected via **I2C Connection**. 
 
 - ***All work regarding software, hardware, and planning is all designed by our team (only high schoolers).*** 
 
-- We do have mentors who only give advice, but ***all work is done by us***.
+- We do have mentors who only give advice, but **all work is done by us**.
 
 
 ***Please also keep in mind that some of the files on here, such as code or 3D models, may have inaccuracies, as this is a work in progress. We are still in beta testing and are actively fixing these errors.***
@@ -159,5 +159,5 @@ Each sensor except the Soil Moisture Probe is connected via **I2C Connection**. 
 ### 🖼️ *Additional Images*
 
 ![Drawing Image 1](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_4.png)
-![CAD Image 1](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_3.png)
-![CAD Image 1](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_1.png)
+![CAD Image 2](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_3.png)
+![CAD Image 3](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_1.png)
