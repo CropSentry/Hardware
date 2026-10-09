@@ -17,7 +17,7 @@ The data path of how info will get to a user will start from the on-board module
 - It's a system of sensors full of cross-checking for accuracy.
 
 
-![Introduction Image 1](https://github.com/CropSentry/Hardware/blob/main/CropSentry%20SCH-1.png)
+![Introduction Image 1](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_12.PNG)
 
 
 --------------
@@ -59,22 +59,20 @@ Each sensor except the Soil Moisture Probe is connected via **I2C Connection**. 
 
 ### 📐 *Schematic Images/PDF*
 
-![Schematic PNG](https://github.com/CropSentry/Hardware/blob/main/CropSentry%20SCH-1.png)
+![Schematic PNG](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_5.png)
 
-![Schematic PDF Link](https://github.com/CropSentry/Hardware/blob/main/CropSentry%20SCH.pdf)
-
-[![View Schematic on KiCanvas](https://hack.club/pcb-badge)](https://kicanvas.org/?repo=https://github.com/<OWNER>/<REPOSITORY>/tree/main/pcb)
+[![View Schematic on KiCanvas](https://hack.club/pcb-badge)](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_5.png)
 
 
 --------------
 
 ### 🛠️ *CAD Images/3D Models*
 
-![CAD Image 1](https://github.com/CropSentry/Hardware/blob/main/CropSentry%20SCH-1.png)
+![CAD Image 1](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_2.png)
 
-![3D Model Image 1](https://github.com/CropSentry/Hardware/blob/main/CropSentry%20SCH.pdf)
+![3D Model Image 1](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_6.jpg)
 
-![3D Model Image 2](https://github.com/CropSentry/Hardware/blob/main/CropSentry%20SCH.pdf)
+![3D Model Image 2](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_7.jpg)
 
 
 --------------
@@ -89,7 +87,7 @@ Each sensor except the Soil Moisture Probe is connected via **I2C Connection**. 
 | **BME688** | Secondary gas + temp/humidity/pressure | 1 | $20.89 | ✅ Purchased |
 | **SHT45** | Ambient temp/humidity reference | 1 | $14.99 | ✅ Purchased |
 | **Capacitive soil probe** (EK1940, 2pk) | Soil water content, corrosion resistant | 1 | $9.99 | ✅ Purchased |
-| **Heltec ESP32 LoRa V3** (w/ 1100 mAh cell + antenna) | MCU + SX1262 LoRa radio | 2 | $26.49 | ✅ 1 Purchased · 🎁 1 Donated |
+| **Heltec ESP32 LoRa V3** (w/ 1100 mAh cell + antenna) | MCU + SX1262 LoRa radio | 2 | $26.49 | ✅ 1 Purchased · 1 Donated |
 | **ZPSHYD 6V 3W solar panel** | Monocrystalline, 145 × 145 mm | 1 | $14.59 | *To buy* |
 | **XINLANTECH 18650 2600 mAh** | Protected Li-ion, built-in BMS | 1 | $11.72 | *To buy* |
 | **CN3065 solar charge module** (3pk) | 500 mA solar Li-ion charger | 1 | $6.99 | *To buy* |
@@ -117,9 +115,11 @@ Each sensor except the Soil Moisture Probe is connected via **I2C Connection**. 
 ### ⚡ *Visual Data Flow*
 
 [![Architecture diagram of cropsentry/hardware](https://gitdiagram.com/cropsentry/hardware/diagram.png)](https://gitdiagram.com/cropsentry/hardware?utm_source=readme&utm_medium=picture)
+
 [![Architecture diagram](https://gitdiagram.com/diagram-badge.svg)](https://gitdiagram.com/cropsentry/hardware?utm_source=readme&utm_medium=badge)
-![Diagram Image 1](https://github.com/CropSentry/Hardware/blob/main/CropSentry%20SCH.pdf)
-![Diagram Image 2](https://github.com/CropSentry/Hardware/blob/main/CropSentry%20SCH.pdf)
+
+![Diagram Image 1](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_9.png)
+![Diagram Image 2](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_10.png)
 
 --------------
 
@@ -141,7 +141,7 @@ Each sensor except the Soil Moisture Probe is connected via **I2C Connection**. 
 
 - ***All work regarding software, hardware, and planning is all designed by our team (only high schoolers).*** 
 
-- We do have mentors who only give advice, but all work is done by us.
+- We do have mentors who only give advice, but ***all work is done by us***.
 
 
 ***Please also keep in mind that some of the files on here, such as code or 3D models, may have inaccuracies, as this is a work in progress. We are still in beta testing and are actively fixing these errors.***
@@ -158,4 +158,6 @@ Each sensor except the Soil Moisture Probe is connected via **I2C Connection**. 
 
 ### 🖼️ *Additional Images*
 
-![CAD Image 1](https://github.com/CropSentry/Hardware/blob/main/CropSentry%20SCH-1.png)
+![Drawing Image 1](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_4.png)
+![CAD Image 1](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_3.png)
+![CAD Image 1](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_1.png)
