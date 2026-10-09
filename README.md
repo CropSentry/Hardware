@@ -21,6 +21,16 @@ The data path of how info will get to a user will start from the on-board module
 
 --------------
 
+### 🚗 *Drive*
+
+CropSentry solves a real problem. Farmers all over the world need to constantly check their plants and make sure everything is doing well on a daily basis. According to statistics, over **20-40% of crops** are lost per year due to disease and environmental factors. It also says that an estimated **63+ tons of crops** and **220 billion dollars** are lost because of this.
+
+With CropSentry, checking your crops/plants becomes automated, and you can do it all from your phone.
+
+We see farmers as the cornerstone of our tech-evolving world, and we believe that a design like this could be very beneficial in the agricultural system.
+
+--------------
+
 ### ⚙️ *How It Works*
 
 The board chosen for the hardware design is the ***Heltec LoRa V3*** due to its high-level radio capabilities and adjustable range/power accessibility.
@@ -28,7 +38,7 @@ The board chosen for the hardware design is the ***Heltec LoRa V3*** due to its 
 - **SGP41:** Detects VOC/NOx air pollution over a period of time using its metal-oxide sensor abilities. Sends its information through Sensirion’s built-in VOC translating algorithm. Primary gas sensor for accurate readings. Chosen for its potency to collect accurate information under low power and time.
 - **BME688:** Looks specifically for temperature and humidity, but also serves as a secondary VOC sensor. Since VOCs are hard to track accurately, the BME688 can act as another cross-check system. Chosen for its high versatility and efficiency.
 - **SHT45:**  Serves as the ambient system for temperature and humidity sensing. We also see this as another cross-check system, but it still carries weight in how data is calculated for the user. Chosen due to its low power, reduced pins, and sensor cross-checking abilities.
-- **Capacitive Soil Moisture Probe:**  Detects soil moisture and processes all data on an ADC pin using analog information. I chose to use capacitive so the design wouldn’t corrode or get damaged during a deployment.
+- **Capacitive Soil Moisture Probe:**  Detects soil moisture and processes all data on an ADC pin using analog information. I chose to use capacitive so the design wouldn’t corrode or get damaged during deployment.
 
 Each sensor except the Soil Moisture Probe is connected via **I2C Connection**. The Soil Moisture Probe is connected to **GPIO 2** to receive analog signals.
 
@@ -47,7 +57,7 @@ Each sensor except the Soil Moisture Probe is connected via **I2C Connection**. 
 
 - **Range:** This can be a concern, as we are not completely sure how far the LoRa system/data will transmit. This would mostly be because we are still working on designing the model (10/8/2026) and are not able to go into the testing phase yet.
 - **Inaccurate Readings:** Specifically in the VOC/NOx sensors, where there is vulnerability due to them needing to be tested over time and for growth consistency. We are virtually trusting the sensors’ datasheets to determine our readings.
-- **Water Contamination**: Rainwater (especially heavy rainwater) has a possibility of breaking through the 3D-printed layer protecting the circuits. We are actively looking for a solution to this concern and are considering using remedies such as rubber seals, CNC-milled products, and absorbent material.
+- **Water Leaking**: Rainwater (especially heavy rainwater) has a possibility of breaking through the 3D-printed layer protecting the circuits. We are actively looking for a solution to this concern and are considering using remedies such as rubber seals, CNC-milled products, and absorbent material.
 - **Calibration:** We are also relying on the datasheet for accurate calibration of all sensors. Similar to the BME688, we are taking multiple readings and using the median. We also have an embedded safeguard to not send data that is unrealistic and not plausible, such as, for example, a temperature reading showing as -200 Celsius.
 - **Frequency:** We decided, on much advice and legal regulations, to go with the 902-928 MHz band, which is also known as the ISM band (Industrial, Scientific, and Medical band).
 - **Coding Libraries:** For the hardware coding, I used the *heltec_unofficial.h*, *WiFiManager.h*, *HTTPClient.h*, *Wire.h*, *Adafruit_BME680.h*, and *Adafruit_SHT4x.h* libraries.
