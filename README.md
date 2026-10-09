@@ -1,6 +1,8 @@
 # 🌱 CropSentry
 
-**A fully autonomous plant disease/condition detector that runs on solar power and features LoRa capability.**
+**A fully-autonomous plant disease/condition detector that runs on solar power and features LoRa capability.**
+
+![Introduction Image 1](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_12.PNG)
 
 --------------
 
@@ -15,9 +17,6 @@ The data path of how info will get to a user will start from the on-board module
 - It's a plant disease/condition detector.
 - It's a module that sends collected data to a powerful server.
 - It's a system of sensors full of cross-checking for accuracy.
-
-
-![Introduction Image 1](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_12.PNG)
 
 
 --------------
@@ -123,6 +122,22 @@ Each sensor except the Soil Moisture Probe is connected via **I2C Connection**. 
 
 --------------
 
+
+### 🔨 Building it Yourself
+
+Make sure you have these libraries installed in your IDE/codespace: *heltec_unofficial.h v.9.2*, *WiFiManager.h v2.0.17*, *HTTPClient.h v.6.1*, *Wire.h v3.3.12*, *Adafruit_BME680.h v2.0.6*, and *Adafruit_SHT4x.h v1.0.5*.
+
+Then, in the receiver module code, change line 121 to your server link.
+
+After that, make sure to plug in and run the receiver board code first, then do the mainboard.
+
+Also, ensure you connect your phone to the receiver board's Wi-Fi so that you can use the interactive portal to connect it to your router.
+
+Once that's done and all your devices are connected, everything is automated provided there are no concurrent issues.
+
+
+--------------
+
 ### 🏆 *Credits*
 
 - **Hardware, power system, enclosure, and node firmware:** ***[Cai Griffith](https://www.caigriffith.dev)*** — *https://github.com/CropSentry/Hardware*
@@ -135,7 +150,7 @@ Each sensor except the Soil Moisture Probe is connected via **I2C Connection**. 
 
 - All CropSentry Hardware is coded in ***C++***
 
-- The receiver code has an example link for where the server link is supposed to go due to security concerns
+- The receiver code has an example link for where the server link is supposed to go due to security concerns. You must change this to send information to a server.
 
 - CropSentry is a three-person project built for the **Congressional App Challenge** and approved as a research project through the **Middle Georgia State University CyberKnights Program**.
 
