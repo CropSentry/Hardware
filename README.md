@@ -61,7 +61,7 @@ Each sensor except the Soil Moisture Probe is connected via **I2C Connection**. 
 
 ![Schematic PNG](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_5.png)
 
-[![View Schematic on KiCanvas](https://hack.club/pcb-badge)](https://github.com/CropSentry/Hardware/blob/main/sch-files/CropSentry.kicad_sch)
+[![View Schematic on KiCanvas](https://hack.club/pcb-badge)](https://kicanvas.org/?repo=https://github.com/CropSentry/Hardware/blob/main/sch-files/CropSentry.kicad_sch)
 
 
 --------------
