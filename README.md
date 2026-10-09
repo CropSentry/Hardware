@@ -165,9 +165,9 @@ Once that's done and all your devices are connected, everything is automated pro
 
 ### 🎬 *Presentation Links*
 
-**Public link to presentation created for a research meeting:** ***[Presentation View Link](https://github.com/CropSentry/Hardware/blob/main/CropSentry%20Materials/CropSentry/Presentation/CropSentry%20MGA%20Presentation.pdf)***
+**Public link to presentation created for a research meeting:** ***[Presentation View Link](https://github.com/CropSentry/Hardware/blob/main/research-presentations/Introduction/CropSentry_MGA_Presentation.pdf)***
 
-**Public link to presentation created for an update at a research meeting (9-28-2026):** ***[Presentation View Link](https://canva.link/cropsentry-update-mga-presentation-9-28-2026)***
+**Public link to presentation created for an update at a research meeting (9-28-2026):** ***[Presentation View Link](https://github.com/CropSentry/Hardware/blob/main/research-presentations/Update_9-29-2026/CropSentry_Update_MGA_Presentation_9-28-2026.pdf)***
 
 --------------
 
