@@ -10,12 +10,12 @@
 
 **CropSentry** is an IoT device that automatically and autonomously tracks plant conditions, including VOC, temperature, soil moisture, gas, and humidity. It sits alone in a field and can monitor multiple crop sections at once. We see that through this process, an AI/ML model can use this data to determine the plant’s in-the-moment state, as well as provide an educated and accurate summary of what can show as a potential risk. 
 
-The data path of how info will get to a user will start from the on-board module. (Cai Griffith) From there, it sends information via a LoRa connection to another board that is connected to a Wi-Fi router. The board will then send over the Wi-Fi to a high-power server (https://gear.museumofaviation.org/tech-specs/) and will compute all readings with an AI/ML system. (Jay Patel) After it’s been computed, the server will send the translated data to the CropSentry app. (Aahan Patel) From there, the user can read charts, numbers, and an AI summary of the condition of their crop.
+The data path of how info will get to a user will start from the on-board module. (Cai Griffith) From there, it sends information via a LoRa connection to another board that is connected to a Wi-Fi router. The board will then send data over Wi-Fi to a high-power server (https://gear.museumofaviation.org/tech-specs/) and will compute all readings with an AI/ML system. (Jay Patel) After it’s been computed, the server will send the translated data to the CropSentry app. (Aahan Patel) From there, the user can read charts, numbers, and an AI summary of the condition of their crop.
 
 **To summarize:**
 
 - It's a plant disease/condition detector.
-- It's a module that sends collected data to a powerful server.
+- It's a module that sends collected crop data to a powerful server for compute.
 - It's a system of sensors full of cross-checking for accuracy.
 
 
