@@ -176,7 +176,7 @@ Once that's done and all your devices are connected, everything is automated on 
 
 - **Hardware, power system, enclosure, and node firmware:** ***[Cai Griffith](https://www.caigriffith.dev)*** — *https://github.com/CropSentry/Hardware*
 - **Application and server backend/frontend:** ***[Aahan Patel](https://github.com/HarbingerYt)*** — *https://github.com/CropSentry/MobileApp*
-- **ML Design and backend:** ***[Jay Patel](https://github.com/Jay2710-09)*** — *https://github.com/CropSentry/ML-Model*
+- **ML Design and backend:** ***[Jay Patel](https://github.com/Jay2710-09)*** — *Building ML Model; kept private in CropSentry*
 
 --------------
 
