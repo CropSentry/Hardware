@@ -8,7 +8,7 @@ Adafruit_BME680 bme(&Wire);
 
 #define PAUSE 0             // MS between packet transmission, already computed in void loop() - Will send when button pressed
 #define FREQUENCY 905.2     // 905.2 MHZ, legal band for ISM - POWER MUST BE UNDER 30 dBm - ANTENNA UNDER 6 dBi
-#define BANDWIDTH 500.0      // 500 kHz, MAKE SURE Serial BOARDS ARE SET TO THIS
+#define BANDWIDTH 500.0     // 500 kHz, MAKE SURE Serial BOARDS ARE SET TO THIS
 #define SPREADING_FACTOR 9  // Controls how fast or slow board sends, longer should mean slower
 #define TRANSMIT_POWER 0    // Boards are close together for testing - don't want to send too much transmit power
 
@@ -128,6 +128,7 @@ void setup() {
     Serial.println("No BME688 Connected, restart code");
     while (1) delay(1);  // Kills code, prevents processor from overworking this loop
   }
+
   bme.setHumidityOversampling(BME680_OS_16X);  // Uses library example standard, 16x for accuracy
   bme.setGasHeater(320, 150);                  // 320*C for 150 ms microscopic
   // Chose to not use temp in BME due to microscopic heat affecting accuracy
@@ -142,7 +143,7 @@ void setup() {
   }
 
   sht4.setPrecision(SHT4X_HIGH_PRECISION);  // Used library example for high precison
-  sht4.setHeater(SHT4X_HIGH_HEATER_100MS);  // Sets microscopic heater in SHT4X module to high heat for particles
+  sht4.setHeater(SHT4X_NO_HEATER);          
 
   display.clear();
   display.drawString(0, 0, "Device Connected!");
@@ -190,6 +191,11 @@ void bmefunc() {
 
 void sht45func() {
   sensors_event_t humidity, temp;  // Creates two new variables
+  sht4.setHeater(SHT4X_HIGH_HEATER_100MS);
+  sht4.getEvent(&humidity, &temp);
+  sht4.setHeater(SHT4X_NO_HEATER);
+  delay(10000);
+
   if (!sht4.getEvent(&humidity, &temp)) {
     display.clear();
     display.drawString(0, 0, "SHT45 Cannot Read");
@@ -214,7 +220,6 @@ void sht45func() {
 
 void SMP() {  // Soil Moisture Probe
   SensorData.soilm = analogRead(SM_A);
-
   if (SensorData.soilm < 800 || SensorData.soilm > 3400) {
     a = 1;
     return;
@@ -222,13 +227,14 @@ void SMP() {  // Soil Moisture Probe
 }
 
 void loop() {
-  heltec_loop();  // Checks for button press
-  if (millis() - lastRun < waitTime) return; // Not enough time has passed
-  lastRun = millis(); // Enough time has passed, runs the loop
+  heltec_loop();                              // Checks for button press
+  if (millis() - lastRun < waitTime) return;  // Not enough time has passed
+  lastRun = millis();                         // Enough time has passed, runs the loop
   heltec_led(50);
-  Serial.println("Running Sensors ETA 2 min:");
+  display.displayOn();
+  Serial.println("Running Sensors \n ETA 2 min:");
   display.clear();
-  display.drawString(0, 0, "Running Sensors \n ETA 2 min:");
+  display.drawString(0, 0, "Running Sensors... \n ETA 1-2 min:");
   display.display();
   delay(5000);
   a = 0;
@@ -237,24 +243,25 @@ void loop() {
   d = 0;
   x = 0;
   y = 0;
-  z = 0;         // resets all values for flags to catch
-  delay(10000);  // 10 seconds to prepare
+  z = 0;  // resets all values for flags to catch
+  delay(1000);
   bmefunc();
-  delay(40000);  // 40 seconds to collect data
+  delay(1000);
   sht45func();
-  delay(40000);  // 40 seconds to collect data
+  delay(1000);
   SMP();
-  delay(15000);  // 15 seconds to complete
+  delay(1000);
+
   Serial.println("Data Collected! \n Proceeding with Radio");
   display.clear();
-  display.drawString(0, 0, "Data Collected, \n Proceeding with Radio");
+  display.drawString(0, 0, "Data Collected! \n Proceeding with Radio");
   display.display();
   delay(5000);
 
 
   if (a == 1.0 || b == 1.0 || c == 1.0 || d == 1.0 || x == 1.0 || y == 1.0 || z == 1.0) {  // If any value is equal to 1, run failsafe
     iter++;
-    if (iter == 3) {                                                                       // If sensor loop ran through 3 times with fail, end code
+    if (iter == 3) {  // If sensor loop ran through 3 times with fail, end code
       Serial.println("Sensor Damaged, Not Receiving Info After 3 Attempts. Please Repair and Reset");
       display.clear();
       display.drawString(0, 0, "Sensor Damaged, \n Not Receiving Info \n After 3 Attempts. \n Please Repair \n and Reset");
@@ -273,7 +280,7 @@ void loop() {
     return;
   }
 
-  String lora_msg = String(SensorData.nodeid, HEX) + "|" + String(SensorData.sequence) + "|" + String(SensorData.temp1) + "|" + String(SensorData.humid1) + "|" + String(SensorData.humid2) + "|" + String(SensorData.soilm) + "|" + String(SensorData.gas);  // Defining the packet that will be sent over LoRa
+  String lora_msg = String(SensorData.nodeid, HEX) + "|" + String(SensorData.sequence) + "|\n" + String(SensorData.temp1) + "|" + String(SensorData.humid1) + "|\n" + String(SensorData.humid2) + "|" + String(SensorData.soilm) + "|\n" + String(SensorData.gas);  // Defining the packet that will be sent over LoRa added in \n
 
   // Packet format: nodeid|sequence|temp1|humid1|humid2|soilm|gas
 
@@ -293,15 +300,13 @@ void loop() {
       delay(5000);
       heltec_led(0);
       while (1) delay(1);  // Stops all code
-    }   
-    display.clear();
-    display.drawString(0, 0, "Radio Transmit \n Failed, Retrying");
-    display.display();
-    delay(10000);  // Lets everything have time to get ready to run the loop again and for the user to see the radio failed
+    }
+
     waitTime = 0;
     return;
 
   } else {
+    Serial.println("Radio Transmit Sucessful!");
     display.clear();
     display.drawString(0, 0, "Radio Transmit \n Sucessful!");
     display.display();
@@ -309,7 +314,12 @@ void loop() {
     iter = 0;
     radioiter = 0;
     SensorData.sequence++;  // Adds one to the Sequence variable inside the struct
+    both.println("Going to Sleep until \n Next Data Round...");
+    delay(5000);
+    both.println("");
+    display.displayOff();
   }
-    heltec_led(0);             // Turns LED off
-    waitTime = 1500000UL;   // 25 minute delay for next round
+  heltec_led(0);         // Turns LED off
+  display.clear();       // added in
+  waitTime = 1500000UL;  // 25 minute delay for next round
 }

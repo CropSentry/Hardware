@@ -41,11 +41,16 @@ void setup() {
   display.init();
   display.flipScreenVertically();
 
+  both.print("Device Starting...");
+  delay(5000);
+
   both.println("Hold PRG to \n Reset WiFi");
-  delay(2000);
+  delay(2500);
   if (digitalRead(BUTTON) == LOW) {
     wm.resetSettings();
   }
+  delay(10000);
+
   display.clear();
 
   both.println("Connect to the Board \n WiFi System. \n You will be prompted \n with further instructions");
@@ -84,8 +89,9 @@ void setup() {
   RADIOLIB_OR_HALT(radio.startReceive(RADIOLIB_SX126X_RX_TIMEOUT_INF));
 
 
-  both.println("WiFi Receiver Board \n Activated \n Starting Processing...");
-  delay(2500);
+  both.println("WiFi Receiver Board \n Activated \n Looking for Radio... \n Will Sleep \n until Signal Received");
+  delay(8000);
+  display.clear();
 }
 
 void wifiSetup() {
@@ -112,7 +118,7 @@ void sendServer() {
   HTTPClient http;
   Serial.print("[HTTP] begin...\n");
   // configure traged server and url
-  http.begin("https://httpbin.org/post");  // Link to server
+  http.begin("https://www.example.com");  // Link to server
   Serial.print("[HTTP] POST...\n");
   // start connection and send HTTP header
   http.addHeader("Content-Type", "text/plain");
@@ -120,14 +126,7 @@ void sendServer() {
                                    // httpCode will be negative on error
 
 
-  if (httpCode < 0) {
-    both.println("Network Failure \n Error Code Sub-0 \n Trying Again...");
-    http.end();
-    c = 1;
-    a++;
-
-
-  } else if (httpCode == 404 || httpCode == 400) {
+  if (httpCode == 404 || httpCode == 400) {
     both.println("Server Code Failure \n Error Code 404/400 \n Ending Processes...");
     http.end();
     while (1) delay(1);
@@ -163,28 +162,38 @@ void sendServer() {
     both.println("Sending Data \n too Large \n Code needs Repair");
     http.end();
     while (1) delay(1);
-  }
 
+  } 
+  
+    else if (httpCode <= 299 && httpCode >= 200) {
+    both.println("Data Verified! \n Continuing \n Waiting on Next Packet...");
+    delay(5000);
+    display.clear();
+    http.end();
+    a = 0;
+    b = 0;
+    c = 0;
+    return;
+  }
+  
   else if (httpCode > 0) {
     // HTTP header has been send and Server response header has been handled
     both.println("Checking Server \n for Confirmation...");
+    http.end();
     // file found at server
+  } else if (httpCode < 0) {
+    both.println("Network Failure \n Error Code Sub-0 \n Trying Again...");
+    http.end();
+    c = 1;
+    a++;
+  }
 
-    if (httpCode <= 299 && httpCode >= 200) {
-      both.println("Data Verified! \n Continuing...");
-      http.end();
-      a = 0;
-      b = 0;
-      c = 0;
-      return;
-    }
 
-    else {
-      both.println("Issue with Server \n Communication \n Retrying...");
-      b = 1;
-      a++;
-      http.end();
-    }
+  else {
+    both.println("Issue with Server \n Communication \n Retrying...");
+    b = 1;
+    a++;
+    http.end();
   }
 }
 
@@ -211,19 +220,20 @@ void loop() {
     packetReady = false;
     int state = radio.readData(data);
     both.println("Packet Received \n Processing...");
-    delay(500);
+    delay(1000);
     radio.startReceive(RADIOLIB_SX126X_RX_TIMEOUT_INF);
     if (state == RADIOLIB_ERR_NONE) {
       delay(500);
       both.println(data);
       delay(4500);
       display.clear();
-      if (waiting == false && b == 0 && c == 0){
+      if (waiting == false && b == 0 && c == 0) {
         both.println("Sending to Server...");
+        delay(1000);
         sendServer();
-    } else {
-      both.println("Retry Pending \n Data Queued");
+      } else {
+        both.println("Retry Pending \n Data Queued");
+      }
     }
   }
-}
 }
