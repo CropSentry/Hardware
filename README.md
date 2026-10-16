@@ -61,6 +61,7 @@ Each sensor except the Soil Moisture Probe is connected via **I2C Connection**. 
 - **Calibration:** We are also relying on the datasheet for accurate calibration of all sensors. Similar to the BME688, we are taking multiple readings and using the median. We also have an embedded safeguard to not send data that is unrealistic and not plausible, such as, for example, a temperature reading showing as -200 Celsius.
 - **Frequency:** I decided, on much advice and legal regulations, to go with the 902-928 MHz band, which is also known as the ISM band (Industrial, Scientific, and Medical band).
 - **Coding Libraries:** For the hardware coding, I used the *heltec_unofficial.h*, *WiFiManager.h*, *HTTPClient.h*, *Wire.h*, *Adafruit_BME680.h*, and *Adafruit_SHT4x.h* libraries.
+- **GPIO Decisions:** The Heltec LoRa V3 comes with two usable I2C buses, one on GPIOs 17-18, and the other on 41-42. On the standard V3 board, the 17-18 pins are hidden and not conveniently usable (with the exception of not using the OLED address, 0x3C). However, in this situation, we have the V3.2 module, which hides pins 17-18 directly for the display. Because of this, I decided to use pins 41-42 for the I2C bus.
 
 
 --------------
@@ -89,32 +90,27 @@ Each sensor except the Soil Moisture Probe is connected via **I2C Connection**. 
 
 ### 📋 *Bill of Materials*
 
-| Part | Function | Qty | Price | Status |
 | Part | Role | Qty | Cost | Status |
 |---|---|---:|---:|---|
-| **SGP41** | Primary VOC/NOx index sensor | 1 | $12.79 | *To buy* |
+| **SGP41** | Primary VOC/NOx index sensor | 1 | $14.99 | ✅ Purchased |
 | **BME688** | Secondary gas + temp/humidity/pressure | 1 | $20.89 | ✅ Purchased |
 | **SHT45** | Ambient temp/humidity reference | 1 | $14.99 | ✅ Purchased |
 | **Capacitive soil probe** (EK1940, 2pk) | Soil water content, corrosion resistant | 1 | $9.99 | ✅ Purchased |
 | **Heltec ESP32 LoRa V3** (w/ 1100 mAh cell + antenna) | MCU + SX1262 LoRa radio | 2 | $26.49 | ✅ 1 Purchased · 1 Donated |
-| **ZPSHYD 6V 3W solar panel** | Monocrystalline, 145 × 145 mm | 1 | $14.59 | *To buy* |
-| **XINLANTECH 18650 2600 mAh** | Protected Li-ion, built-in BMS | 1 | $11.72 | *To buy* |
-| **CN3065 solar charge module** (3pk) | 500 mA solar Li-ion charger | 1 | $6.99 | *To buy* |
-| **XT60 switch** | Battery disconnect | 1 | $8.99 | *To buy* |
-| **Triple screw terminal** | Soil probe interface | 1 | — | 🔧 On hand |
-| **Schottky diode** (40V 5A) | Reverse current blocking | 1 | — | 🔧 On hand |
-| **Bulk electrolytic** (1000 µF 10V) | LoRa TX transient smoothing | 1 | — | 🔧 On hand |
+| **ZPSHYD 6V 3W solar panel** | Monocrystalline, 145 × 145 mm | 1 | $14.59 | ✅ Purchased |
+| **XINLANTECH 18650 2600 mAh** | Protected Li-ion, built-in BMS | 1 | $11.72 | ✅ Purchased |
+| **CN3065 solar charge module** (3pk) | 500 mA solar Li-ion charger | 1 | $6.99 | ✅ Purchased |
+| **XT60 switch** | Battery disconnect | 1 | $8.99 | ✅ Purchased |
 
 ### Budget
 
 | Line | Submitted | Actual | Δ |
 |---|---:|---:|---:|
-| Subtotal | $135.43 | 127.44|-7.99 |
-| Tax (7%) | $9.48 | 8.92|-0.56 |
-| **Total** | **144.91**|**136.36** | **-$8.55** |
+| Subtotal | $137.63 | $129.64 | -$7.99 |
+| Tax (7%) | $9.78 | $9.23 | -$0.55 |
+| **Total** | **$147.41** | **$138.87** | **-$8.54** |
 | Spent so far | $77.43 | $77.43 | — |
-| **Remaining** | **67.48**|**58.93** | **-$8.55** |
-
+| **Remaining** | **$69.98** | **$61.44** | **-$8.54** |
 
 *All on-hand pieces are CURRENTLY funded by me and other contributors; any money received from Stardance will go towards buying more parts needed and covering part expenses. Due to shipping and time concerns, I had to purchase parts myself to be able to continue building CropSentry on a strong timeline.*
 
