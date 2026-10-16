@@ -4,7 +4,7 @@
 #include <Adafruit_SHT4x.h>
 Adafruit_SHT4x sht4;
 
-Adafruit_BME680 bme(&Wire);
+Adafruit_BME680 bme(&Wire1);
 
 #define PAUSE 0             // MS between packet transmission, already computed in void loop() - Will send when button pressed
 #define FREQUENCY 905.2     // 905.2 MHZ, legal band for ISM - POWER MUST BE UNDER 30 dBm - ANTENNA UNDER 6 dBi
@@ -77,6 +77,7 @@ void setup() {
   Serial.begin(115200);     // 115200 baud, 8 SensorData bits, N for no parity, 1 stop bit, on the SDA and SCL pins
   pinMode(SM_A, INPUT);     // Setting Soil Moisture Probe to an input
   SensorData.sequence = 0;  // Setting Sequence to 0
+  Wire1.begin(41, 42);
 
   RADIOLIB_OR_HALT(radio.begin());
   // Set the callback function for sending packets
@@ -120,12 +121,14 @@ void setup() {
   delay(5000);
   Serial.println("Device Initializing:");
 
+  bme.begin();
   bme.setHumidityOversampling(BME680_OS_16X);  // Uses library example standard, 16x for accuracy
   bme.setGasHeater(320, 150);                  // 320*C for 150 ms microscopic
   // Chose to not use temp in BME due to microscopic heat affecting accuracy
 
+  sht4.begin(&Wire1);
   sht4.setPrecision(SHT4X_HIGH_PRECISION);  // Used library example for high precison
-  sht4.setHeater(SHT4X_HIGH_HEATER_100MS);  // Sets microscopic heater in SHT4X module to high heat for particles
+  sht4.setHeater(SHT4X_NO_HEATER);  // Sets microscopic heater in SHT4X module to high heat for particles
 
   display.clear();
   display.drawString(0, 0, "Device Connected!");
@@ -140,6 +143,7 @@ void bmefunc() {
   float humidSum = 0;
   int kept = 0;
   for (int i = 0; i < 10; i++) {
+    bme.performReading();
     if (i > 4) {
       gasSum += bme.gas_resistance / 1000.0;  // Converts to KOhms for more compressable readings
       humidSum += bme.humidity;
@@ -153,6 +157,7 @@ void bmefunc() {
 
 
 void sht45func() {
+  sht.getEvent(&humidity, &temp);
   sensors_event_t humidity, temp;  // Creates two new variables
   SensorData.temp1 = temp.temperature;
   SensorData.humid2 = humidity.relative_humidity;

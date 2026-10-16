@@ -4,7 +4,7 @@
 #include <Adafruit_SHT4x.h>
 Adafruit_SHT4x sht4;
 
-Adafruit_BME680 bme(&Wire);
+Adafruit_BME680 bme(&Wire1);
 
 #define PAUSE 0             // MS between packet transmission, already computed in void loop() - Will send when button pressed
 #define FREQUENCY 905.2     // 905.2 MHZ, legal band for ISM - POWER MUST BE UNDER 30 dBm - ANTENNA UNDER 6 dBi
@@ -120,6 +120,8 @@ void setup() {
   delay(5000);
   Serial.println("Device Initializing:");
 
+  Wire1.begin(41,42);
+
   if (!bme.begin()) {  // Checks for if BME is working
     display.clear();
     display.drawString(0, 0, "No BME688 Connected, \n restart code");
@@ -133,7 +135,7 @@ void setup() {
   bme.setGasHeater(320, 150);                  // 320*C for 150 ms microscopic
   // Chose to not use temp in BME due to microscopic heat affecting accuracy
 
-  if (!sht4.begin()) {  // Checks for if SHT45 is working
+  if (!sht4.begin(&Wire1)) {  // Checks for if SHT45 is working
     display.clear();
     display.drawString(0, 0, "Couldn't find SHT4x");
     display.display();

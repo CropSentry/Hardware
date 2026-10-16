@@ -1,0 +1,29 @@
+CropSentry Hardware BOM:
+____________________________________
+
+SGP41 (1) - 14.99$ - Primary VOC/NOx index sensor (✅ Purchased)
+
+BME688 (1) - 20.89$ - Secondary gas + temp/humidity/pressure (✅ Purchased)
+
+SHT45 (1) - 14.99$ - Ambient temp/humidity reference (✅ Purchased)
+
+Capacitive soil probe (EK1940, 2pk) (1) - 9.99$ - Soil water content, corrosion resistant (✅ Purchased)
+
+Heltec ESP32 LoRa V3 (w/ 1100 mAh cell + antenna) (2) - 26.49$ - MCU + SX1262 LoRa radio (✅ 1 Purchased · 1 Donated)
+
+ZPSHYD 6V 3W solar panel (1) - 14.59$ - Monocrystalline, 145 × 145 mm (✅ Purchased)
+
+XINLANTECH 18650 2600 mAh (1) - 11.72$ - Protected Li-ion, built-in BMS (✅ Purchased)
+
+CN3065 solar charge module (3pk) (1) - 6.99$ - 500 mA solar Li-ion charger (✅ Purchased)
+
+XT60 switch (1) - 8.99$ - Battery disconnect (✅ Purchased)
+____________________________________
+
+Budget (Submitted / Actual / Δ)
+
+Subtotal = 137.63$ / 129.64$ / -7.99$
+Tax (7%) = 9.78$ / 9.23$ / -0.55$
+Total = 147.41$ / 138.87$ / -8.54$
+Spent so far = 77.43$ / 77.43$ / —
+Remaining = 69.98$ / 61.44$ / -8.54$

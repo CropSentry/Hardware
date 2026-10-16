@@ -1,0 +1,17 @@
+﻿Part,Role,Qty,Cost,Status
+SGP41,Primary VOC/NOx index sensor,1,$14.99,✅ Purchased
+BME688,Secondary gas + temp/humidity/pressure,1,$20.89,✅ Purchased
+SHT45,Ambient temp/humidity reference,1,$14.99,✅ Purchased
+"Capacitive soil probe (EK1940, 2pk)","Soil water content, corrosion resistant",1,$9.99,✅ Purchased
+Heltec ESP32 LoRa V3 (w/ 1100 mAh cell + antenna),MCU + SX1262 LoRa radio,2,$26.49,✅ 1 Purchased · 1 Donated
+ZPSHYD 6V 3W solar panel,"Monocrystalline, 145 × 145 mm",1,$14.59,✅ Purchased
+XINLANTECH 18650 2600 mAh,"Protected Li-ion, built-in BMS",1,$11.72,✅ Purchased
+CN3065 solar charge module (3pk),500 mA solar Li-ion charger,1,$6.99,✅ Purchased
+XT60 switch,Battery disconnect,1,$8.99,✅ Purchased
+
+Line,Submitted,Actual,Δ,
+Subtotal,$137.63,$129.64,-$7.99,
+Tax (7%),$9.78,$9.23,-$0.55,
+Total,$147.41,$138.87,-$8.54,
+Spent so far,$77.43,$77.43,—,
+Remaining,$69.98,$61.44,-$8.54,

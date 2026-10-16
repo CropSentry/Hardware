@@ -178,7 +178,7 @@ void sendServer() {
   
   else if (httpCode > 0) {
     // HTTP header has been send and Server response header has been handled
-    both.println("Checking Server \n for Confirmation...");
+    both.println("Checking Server \n for Confirmation... \n DEMO CODE, ENDING CODE");
     http.end();
     // file found at server
   } else if (httpCode < 0) {
@@ -187,8 +187,7 @@ void sendServer() {
     c = 1;
     a++;
   }
-
-
+  }
   else {
     both.println("Issue with Server \n Communication \n Retrying...");
     b = 1;
