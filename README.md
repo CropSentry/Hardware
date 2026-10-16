@@ -179,5 +179,10 @@ Once that's done and all your devices are connected, everything is automated on 
 ### 🖼️ *Additional Images*
 
 ![Drawing Image 1](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_4.png)
+![Drawing Image 2](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_17.png)
 ![CAD Image 2](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_3.png)
-![CAD Image 3](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_1.png)
+![CAD Image 3](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_16.png)
+![CAD Image 4](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_1.png)
+![Work Image 1](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_13.jpeg)
+![Work Image 2](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_14.jpeg)
+![Work Image 3](https://github.com/CropSentry/Hardware/blob/main/assets/CropSentry_Image_15.jpeg)
