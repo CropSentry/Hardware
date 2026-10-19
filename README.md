@@ -66,6 +66,19 @@ Each sensor except the Soil Moisture Probe is connected via **I2C Connection**. 
 
 --------------
 
+### ✅ *Device Information Confidence*
+
+After much testing and review, I have estimated sensed data against actual data and determined every sensor has a **97%+** accuracy rate. 
+
+| Measurement | Stability |
+|---|---|
+| Temperature | 99.57% |
+| Humidity · Sensor 1 | 99.50% |
+| Humidity · Sensor 2 | 98.77% |
+| Soil Moisture | 99.69% |
+| Humidity Agreement | 97.39% |
+
+--------------
 
 ### 📐 *Schematic Images/PDF*
 
