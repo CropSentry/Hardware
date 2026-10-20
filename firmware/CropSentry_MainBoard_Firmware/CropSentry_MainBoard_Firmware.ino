@@ -32,12 +32,12 @@ struct SensorPacket {
   uint64_t nodeid;  // Uses board SN for variety
 
   int sequence;
+  int soilm;
 
   float temp1;
 
   float humid1;
   float humid2;
-  float soilm;
   float gas;
 
   // Needs verification, may count on server
@@ -110,10 +110,6 @@ void setup() {
   display.display();
   delay(5000);
   Serial.println("Radio Initialized");
-  // put your setup code here, to run once:
-  // Wire1.begin(8, SDA, SCL);       // Sets general I2C address to 8
-  // Wire1.onRequest(requestEvent);  // When told to request SensorData, run a function, such as void requestEvent()
-  // Wire1.write((uint8_t*)&data, sizeof(data));
   display.clear();
   display.drawString(0, 0, "Device Initializing");
   display.display();
@@ -192,7 +188,7 @@ void bmefunc() {
 
 
 void sht45func() {
-  sensors_event_t humidity, temp;  // Creates two new variables
+  sensors_event_t humidity, temp;
   sht4.setHeater(SHT4X_HIGH_HEATER_100MS);
   sht4.getEvent(&humidity, &temp);
   sht4.setHeater(SHT4X_NO_HEATER);
@@ -256,6 +252,7 @@ void loop() {
 
   Serial.println("Data Collected! \n Proceeding with Radio");
   display.clear();
+  SensorData.sequence = SensorData.sequence + 1;
   display.drawString(0, 0, "Data Collected! \n Proceeding with Radio");
   display.display();
   delay(5000);
@@ -291,7 +288,7 @@ void loop() {
     display.clear();
     display.drawString(0, 0, "Radio Transmit \n Failed, Retrying");
     display.display();
-    delay(10000);  // Lets everything have time to get ready to run the loop again and for the user to see the radio failed
+    delay(10000);
     radioiter++;
 
     if (radioiter == 3) {  // If radio loop ran through 3 times with fail, end code

@@ -32,12 +32,12 @@ struct SensorPacket {
   uint64_t nodeid;  // Uses board SN for variety
 
   int sequence;
+  int soilm;
 
   float temp1;
 
   float humid1;
   float humid2;
-  float soilm;
   float gas;
 
   // Needs verification, may count on server

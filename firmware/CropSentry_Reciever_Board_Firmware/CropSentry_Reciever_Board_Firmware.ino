@@ -56,8 +56,6 @@ void setup() {
   both.println("Connect to the Board \n WiFi System. \n You will be prompted \n with further instructions");
 
   bool res;
-  // res = wm.autoConnect(); // auto generated AP name from chipid
-  // res = wm.autoConnect("CropSentry WiFi Portal"); // anonymous ap
   res = wm.autoConnect("CropSentry-Module-WiFi", "password");  // password protected ap
 
   if (!res) {
@@ -97,8 +95,6 @@ void setup() {
 void wifiSetup() {
   WiFiManager wm;
   bool res;
-  // res = wm.autoConnect(); // auto generated AP name from chipid
-  // res = wm.autoConnect("CropSentry WiFi Portal"); // anonymous ap
   res = wm.autoConnect("CropSentry-Module-WiFi", "password");  // password protected ap
 
   if (!res) {
@@ -123,7 +119,7 @@ void sendServer() {
   // start connection and send HTTP header
   http.addHeader("Content-Type", "text/plain");
   int httpCode = http.POST(data);  // Sends STR var from sensor module to server
-                                   // httpCode will be negative on error
+
 
 
   if (httpCode == 404 || httpCode == 400) {
@@ -187,7 +183,6 @@ void sendServer() {
     c = 1;
     a++;
   }
-  }
   else {
     both.println("Issue with Server \n Communication \n Retrying...");
     b = 1;
@@ -218,20 +213,23 @@ void loop() {
   if (packetReady) {
     packetReady = false;
     int state = radio.readData(data);
-    both.println("Packet Received \n Processing...");
+    Serial.println("Packet Received \n Processing...");
     delay(1000);
     radio.startReceive(RADIOLIB_SX126X_RX_TIMEOUT_INF);
     if (state == RADIOLIB_ERR_NONE) {
       delay(500);
       both.println(data);
+      Serial.println(data);
       delay(4500);
       display.clear();
       if (waiting == false && b == 0 && c == 0) {
         both.println("Sending to Server...");
+        Serial.println("Sending to Server...");
         delay(1000);
         sendServer();
       } else {
         both.println("Retry Pending \n Data Queued");
+        Serial.println("Retry Pending \n Data Queued");
       }
     }
   }
