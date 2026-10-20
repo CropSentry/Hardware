@@ -179,6 +179,8 @@ Once that's done and all your devices are connected, everything is automated on 
 
 **Public link to presentation created for an update at a research meeting (9-28-2026):** ***[Presentation View Link](https://github.com/CropSentry/Hardware/blob/main/research-presentations/Update_9-29-2026/CropSentry_Update_MGA_Presentation_9-28-2026.pdf)***
 
+**Public link to presentation created for an update at a research meeting (10-20-2026):** ***[Presentation View Link](https://github.com/CropSentry/Hardware/blob/main/research-presentations/Update_9-29-2026/CropSentry_Update_MGA_Presentation_9-28-2026.pdf)***
+
 --------------
 
 ### 🏆 *Credits*
